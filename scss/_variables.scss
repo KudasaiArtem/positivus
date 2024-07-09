@@ -1,0 +1,56 @@
+$font: "SpaceGrotesk";
+
+$text-color: #000000;
+
+// colors
+$primary: #B9FF66;
+$secondary: #191A23;
+$light: #F3F3F3;
+
+// font size desktop
+$font-d: (
+    "h1": 60px,
+    "h2": 40px,
+    "h3": 30px,
+    "h4": 20px,
+    "p": 18px,
+);
+
+// font size mobile
+$font-m: (
+    "h1": 43px,
+    "h2": 36px,
+    "h3": 26px,
+    "h4": 18px,
+    "p": 16px,
+);
+
+// flex
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin button {
+    font-size: map-get($font-d, "h4");
+    font-weight: 400;
+    padding: 20px 35px;
+    border-radius: 14px;
+    cursor: pointer;
+    line-height: 140%;
+}

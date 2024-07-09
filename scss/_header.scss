@@ -1,0 +1,29 @@
+header {
+    padding-top: 60px;
+    
+    @include flex-between;
+    @include flex-align-center;
+
+    nav {
+        max-width: 811px;
+        width: 100%;
+        
+        @include flex-between;
+        @include flex-align-center;
+    }
+}
+
+.logo {
+    @include flex-align-center;
+    gap: 12px;
+}
+
+#requestBtn {
+    color: $text-color;
+    background: transparent;
+    border: 1px solid $secondary;
+    cursor: pointer;
+
+    @include button
+}
+

@@ -1,4 +1,130 @@
+body {
+	background-color: #FFFFFF;
+}
+
 .container {
 	max-width: 1240px;
 	width: 100%;
+	margin: 0 auto;
+}
+
+.mainSection {
+	padding: 70px 0 140px 0;
+	gap: 104px;
+	display: flex;
+	flex-direction: column;
+}
+
+.promotion {
+	display: flex;
+	justify-content: space-between;
+}
+
+.promotionContent {
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	align-items: start;
+}
+.promotionContent h1 {
+	max-width: 530px;
+}
+.promotionContent p {
+	max-width: 498px;
+}
+
+#booking {
+	color: #F3F3F3;
+	display: block;
+	background-color: #191A23;
+	border: 0;
+	font-size: 20px;
+	font-weight: 400;
+	padding: 20px 35px;
+	border-radius: 14px;
+	cursor: pointer;
+	line-height: 140%;
+}
+
+.brandPartners {
+	display: flex;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+}
+
+header {
+	padding-top: 60px;
+	display: flex;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+}
+header nav {
+	max-width: 811px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+#requestBtn {
+	color: #000000;
+	background: transparent;
+	border: 1px solid #191A23;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: 400;
+	padding: 20px 35px;
+	border-radius: 14px;
+	cursor: pointer;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: "SpaceGrotesk";
+	src: url("../fonts/SpaceGrotesk.ttf");
+	font-weight: 500;
+	color: #000000;
+}
+* {
+	font-family: "SpaceGrotesk";
+}
+
+h1 {
+	font-size: 60px;
+	line-height: 140%;
+}
+
+h2 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+p {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 140%;
+}
+
+a {
+	font-size: 20px;
+	text-decoration: none;
+	color: #000000;
+	font-weight: 400;
+	line-height: 140%;
 }/*# sourceMappingURL=style.css.map */

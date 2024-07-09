@@ -1,4 +1,48 @@
+body {
+    background-color: #FFFFFF;
+}
+
 .container {
     max-width: 1240px;
     width: 100%;
+    margin: 0 auto;
+}
+
+.mainSection {
+    padding: 70px 0 140px 0;
+    gap: 104px;
+    
+    @include flex-column;
+}
+
+.promotion {
+    @include flex-between;
+}
+
+.promotionContent {
+    @include flex-column;
+    gap: 35px;
+    align-items: start;
+
+    h1 {
+        max-width: 530px;
+    }
+
+    p {
+        max-width: 498px;
+    }
+}
+
+#booking {
+    color: $light;
+    display: block;
+    background-color: $secondary;
+    border: 0;
+    
+    @include button;
+}
+
+.brandPartners {
+    @include flex-between;
+    @include flex-align-center;
 }

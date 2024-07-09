@@ -1,0 +1,42 @@
+@font-face {
+    font-family: $font;
+    src: url("../fonts/SpaceGrotesk.ttf");
+    font-weight: 500;
+    color: $text-color;
+}
+
+* {
+    font-family: $font;
+}
+
+h1 {
+    font-size: map-get($font-d, "h1");
+    line-height: 140%;
+}
+
+h2 {
+    font-size: map-get($font-d, "h2");
+}
+
+h3 {
+    font-size: map-get($font-d, "h3");
+}
+
+h4 {
+    font-size: map-get($font-d, "h4");
+}
+
+p {
+    font-size: map-get($font-d, "p");
+    font-weight: 400;
+    line-height: 140%;
+}
+
+a {
+    font-size: map-get($font-d, "h4");
+    text-decoration: none;
+    color: $text-color;
+    font-weight: 400;
+    line-height: 140%;
+}
+
