@@ -16,14 +16,17 @@ h1 {
 
 h2 {
     font-size: map-get($font-d, "h2");
+    line-height: 140%;
 }
 
 h3 {
     font-size: map-get($font-d, "h3");
+    line-height: 140%;
 }
 
 h4 {
     font-size: map-get($font-d, "h4");
+    line-height: 140%;
 }
 
 p {

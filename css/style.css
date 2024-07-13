@@ -1,3 +1,11 @@
+:root {
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background-color: #FFFFFF;
 }
@@ -53,6 +61,273 @@ body {
 	align-items: center;
 }
 
+.defaultTitle {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	margin-bottom: 80px;
+}
+.defaultTitle h2 {
+	background-color: #B9FF66;
+	border-radius: 7px;
+	padding: 0 7px;
+}
+.defaultTitle p {
+	max-width: 580px;
+}
+
+.servicesCards {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 40px;
+}
+
+.cardDefault {
+	border: 1px solid #191A23;
+	border-radius: 45px;
+	padding: 50px;
+	max-width: 600px;
+	width: 100%;
+	box-shadow: 0 5px 0 0 #191A23;
+	display: flex;
+	justify-content: space-between;
+}
+.cardDefault > div {
+	display: flex;
+	flex-direction: column;
+	display: flex;
+	justify-content: space-between;
+}
+.cardDefault > div > div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.cardDefault h3 {
+	border-radius: 7px;
+	padding: 0px 7px;
+	display: inline-block;
+}
+
+.learnMore {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.learnMore h4 {
+	font-weight: 400;
+}
+
+.card1 {
+	background-color: #F3F3F3;
+}
+.card1 h3 {
+	background-color: #B9FF66;
+}
+
+.card2 {
+	background-color: #B9FF66;
+}
+.card2 h3 {
+	background-color: #FFFFFF;
+}
+
+.card3 {
+	background-color: #191A23;
+}
+.card3 h3 {
+	background-color: #FFFFFF;
+}
+.card3 h4 {
+	color: #FFFFFF;
+}
+
+.card4 {
+	background-color: #F3F3F3;
+}
+.card4 h3 {
+	background-color: #B9FF66;
+}
+
+.card5 {
+	background-color: #B9FF66;
+}
+.card5 h3 {
+	background-color: #FFFFFF;
+}
+
+.card6 {
+	background-color: #191A23;
+}
+.card6 h3 {
+	background-color: #B9FF66;
+}
+.card6 h4 {
+	color: #FFFFFF;
+}
+
+.proposalBannerLayout {
+	padding: 123px 0 163px 0;
+}
+
+.proposalBanner {
+	border-radius: 45px;
+	padding: 60px;
+	width: 100%;
+	background-color: #F3F3F3;
+	position: relative;
+	overflow: visible;
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+	align-items: start;
+}
+.proposalBanner::before {
+	content: "";
+	background-image: url("../img/proposalBanner.svg");
+	background-repeat: no-repeat;
+	background-position: right center;
+	position: absolute;
+	top: -6%;
+	right: 0;
+	bottom: -6%;
+	left: 0;
+	z-index: 1;
+	background-size: contain;
+}
+.proposalBanner p {
+	max-width: 500px;
+}
+.proposalBanner button {
+	font-size: 20px;
+	font-weight: 400;
+	padding: 20px 35px;
+	border-radius: 14px;
+	cursor: pointer;
+	line-height: 140%;
+	background-color: #191A23;
+	color: #FFFFFF;
+}
+
+.casesLayout {
+	padding-bottom: 140px;
+}
+
+.casesBanner {
+	background-color: #191A23;
+	border-radius: 45px;
+	padding: 70px 60px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.casesBanner p {
+	color: #FFFFFF;
+	max-width: 286px;
+	margin-bottom: 20px;
+}
+.casesBanner h4 {
+	color: #B9FF66;
+}
+.casesBanner span {
+	border: 1px solid #FFFFFF;
+}
+
+.workingProcess {
+	padding-bottom: 140px;
+}
+.workingProcess .defaultTitle p {
+	max-width: 292px;
+}
+
+.dropDownLayout {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.dropDownMenu {
+	border: 1px solid #191A23;
+	border-radius: 45px;
+	padding: 41px 60px;
+	width: 100%;
+	box-shadow: 0 5px 0 0 #191A23;
+	background-color: #F3F3F3;
+	transition: 0.3s ease-in-out;
+}
+
+.dropDownMenuActive {
+	background-color: #B9FF66;
+}
+
+.dropDownTitle {
+	display: flex;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+.dropDownTitle div {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
+.dropDownTitle div span {
+	font-size: 60px;
+	line-height: 140%;
+}
+
+.dropDownText {
+	margin-top: 30px;
+	padding-top: 30px;
+	border-top: 1px solid #000;
+	transition: 0.3s ease-in-out;
+	overflow: hidden;
+}
+
+.dropDownHiden {
+	border: 0px solid transparent;
+	padding: 0;
+	margin: 0;
+	line-height: 0px;
+	color: transparent;
+}
+
+.dropDownBTN {
+	padding: 16px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	background-color: #F3F3F3;
+	display: inherit;
+	position: relative;
+	transition: 0.3s ease-in-out;
+}
+.dropDownBTN svg {
+	pointer-events: none;
+}
+.dropDownBTN::before {
+	content: "";
+	width: 26px;
+	height: 6px;
+	margin: 10px 0;
+	background-color: #191A23;
+}
+.dropDownBTN::after {
+	content: "";
+	width: 26px;
+	height: 6px;
+	margin: 10px 0;
+	background-color: #191A23;
+	transform: rotate(90deg);
+	position: absolute;
+	transition: 0.3s ease-in-out;
+}
+
+.dropDownBTNActive::after {
+	content: "";
+	transform: rotate(0deg);
+}
+
 header {
 	padding-top: 60px;
 	display: flex;
@@ -105,14 +380,17 @@ h1 {
 
 h2 {
 	font-size: 40px;
+	line-height: 140%;
 }
 
 h3 {
 	font-size: 30px;
+	line-height: 140%;
 }
 
 h4 {
 	font-size: 20px;
+	line-height: 140%;
 }
 
 p {

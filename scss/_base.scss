@@ -1,3 +1,11 @@
+:root {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #FFFFFF;
 }
@@ -46,3 +54,300 @@ body {
     @include flex-between;
     @include flex-align-center;
 }
+
+// .services {
+//     @include flex-column;
+//     gap: 80px;
+// }
+
+.defaultTitle {
+    @include flex-align-center;
+    gap: 40px;
+    margin-bottom: 80px;
+
+    h2 {
+        background-color: $primary;
+        border-radius: 7px;
+        padding: 0 7px;
+    }
+
+    p {
+        max-width: 580px;
+    }
+}
+
+.servicesCards {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.cardDefault  {
+    border: 1px solid $secondary;
+    border-radius: 45px;
+    padding: 50px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 5px 0 0 $secondary;
+
+    @include flex-between;
+
+    & > div{
+        @include flex-column;
+        @include flex-between;
+
+        & > div {
+            @include flex-column;
+            align-items: flex-start;
+        }
+    }
+
+    h3 {
+        border-radius: 7px;
+        padding: 0px 7px;
+        display: inline-block;
+    }
+}
+
+.learnMore {
+    @include flex-align-center;
+    gap: 15px;
+
+    h4 {
+        font-weight: 400;
+    }
+}
+
+.card1 {
+    background-color: $light;
+
+    h3 {
+        background-color: $primary;
+    }
+}
+
+.card2 {
+    background-color: $primary;
+
+    h3 {
+        background-color: #FFFFFF;
+    }
+}
+
+.card3 {
+    background-color: $secondary;
+
+    h3 {
+        background-color: #FFFFFF;
+    }
+
+    h4 {
+        color: #FFFFFF;
+    }
+}
+
+.card4 {
+    background-color: $light;
+
+    h3 {
+        background-color: $primary;
+    }
+}
+
+.card5 {
+    background-color: $primary;
+
+    h3 {
+        background-color: #FFFFFF;
+    }
+}
+
+.card6 {
+    background-color: $secondary;
+
+    h3 {
+        background-color: $primary;
+    }
+
+    h4 {
+        color: #FFFFFF;
+    }
+}
+
+.proposalBannerLayout {
+    padding: 123px 0 163px 0;
+}
+
+.proposalBanner {
+    border-radius: 45px;
+    padding: 60px;
+    width: 100%;
+    background-color: $light;
+    position: relative;
+    overflow: visible; // Дозволяє виходити за межі елемента
+
+    @include flex-column;
+    gap: 26px;
+    align-items: start;
+
+    &::before {
+        content: "";
+        background-image: url("../img/proposalBanner.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        position: absolute;
+        top: -6%;
+        right: 0;
+        bottom: -6%;
+        left: 0;
+        z-index: 1;
+        background-size: contain;
+    }
+
+    p {
+        max-width: 500px
+    }
+
+    button {
+        @include button;
+        background-color: $secondary;
+        color: #FFFFFF;
+    }
+}
+
+.casesLayout {
+    padding-bottom: 140px;
+}
+
+.casesBanner {
+    background-color: $secondary;
+    border-radius: 45px;
+    padding: 70px 60px;
+    width: 100%;
+
+    @include flex-between;
+    
+    p {
+        color: #FFFFFF;
+        max-width: 286px;
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        color: $primary;
+    }
+
+    span {
+        border: 1px solid #FFFFFF;
+    }
+}
+
+.workingProcess {
+    padding-bottom: 140px;
+    
+    .defaultTitle {
+        p {
+            max-width: 292px;
+        }
+    }
+}
+
+.dropDownLayout {
+    @include flex-column;
+    gap: 30px;
+}
+
+.dropDownMenu {
+    // @include flex-column;
+    // gap: 30px;
+
+    border: 1px solid $secondary;
+    border-radius: 45px;
+    padding: 41px 60px;
+    width: 100%;
+
+    box-shadow: 0 5px 0 0 $secondary;
+    background-color: $light;
+
+    transition: 0.3s ease-in-out;
+}
+
+.dropDownMenuActive {
+    background-color: $primary;
+}
+
+.dropDownTitle {
+    @include flex-align-center;
+    @include flex-between;
+
+    div {
+        @include flex-align-center;
+        gap: 25px;
+
+        span {
+            font-size: map-get($font-d, "h1");
+            line-height: 140%;
+        }
+    }
+}
+
+.dropDownText {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #000;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.dropDownHiden {
+    border: 0px solid transparent;
+    padding: 0;
+    margin: 0;
+    line-height: 0px;
+    color: transparent;
+}
+
+.dropDownBTN {
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: $light;
+    display: inherit;
+    position: relative;
+    transition: 0.3s ease-in-out;
+
+    svg {
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        width: 26px;
+        height: 6px;
+        margin: 10px 0;
+        background-color: $secondary;
+    }
+
+    &::after {
+        content: "";
+        width: 26px;
+        height: 6px;
+        margin: 10px 0;
+        background-color: $secondary;
+        transform: rotate(90deg);
+        position: absolute;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.dropDownBTNActive {
+    &::after {
+        content: "";
+        transform: rotate(0deg);
+    }
+}
+
+// .downMenu {
+//     position: absolute;
+// }
+
