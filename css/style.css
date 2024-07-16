@@ -199,7 +199,8 @@ body {
 .proposalBanner p {
 	max-width: 500px;
 }
-.proposalBanner button {
+
+.secondaryBtn {
 	font-size: 20px;
 	font-weight: 400;
 	padding: 20px 35px;
@@ -326,6 +327,57 @@ body {
 .dropDownBTNActive::after {
 	content: "";
 	transform: rotate(0deg);
+}
+
+.teamCardLayout {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+}
+
+.teamSection {
+	padding-bottom: 100px;
+}
+.teamSection .defaultTitle p {
+	max-width: 473px;
+}
+
+.teamCard {
+	border: 1px solid #191A23;
+	border-radius: 45px;
+	padding: 40px 35px;
+	box-shadow: 0 5px 0 0 #191A23;
+	max-width: 387px;
+}
+.teamCard figure {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 20px;
+}
+.teamCard figure img {
+	max-width: 102px;
+	height: 100%;
+}
+
+.teamCardContent {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding-bottom: 28px;
+}
+
+.teamCardText {
+	border-top: 1px solid #000;
+	padding-top: 28px;
+	max-width: 317px;
+}
+
+.teamBtnContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding-top: 40px;
 }
 
 header {

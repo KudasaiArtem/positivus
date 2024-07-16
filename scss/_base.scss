@@ -207,12 +207,12 @@ body {
     p {
         max-width: 500px
     }
+}
 
-    button {
-        @include button;
-        background-color: $secondary;
-        color: #FFFFFF;
-    }
+.secondaryBtn {
+    @include button;
+    background-color: $secondary;
+    color: #FFFFFF;
 }
 
 .casesLayout {
@@ -347,7 +347,62 @@ body {
     }
 }
 
-// .downMenu {
-//     position: absolute;
-// }
+.teamCardLayout {
+    // @include flex-row;
+    // justify-content: center;
+    // gap: 40px;
+    // flex-wrap: wrap;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.teamSection {
+    padding-bottom: 100px;
+
+    .defaultTitle {
+        p {
+            max-width: 473px;
+        }
+    }
+}
+
+.teamCard {
+    border: 1px solid $secondary;
+    border-radius: 45px;
+    padding: 40px 35px;
+    box-shadow: 0 5px 0 0 $secondary;
+    max-width: 387px;
+
+    figure {
+        @include flex-row;
+        align-items: flex-end;
+        gap: 20px;
+
+        img {
+            max-width: 102px;
+            height: 100%;
+        }
+    }
+}
+
+.teamCardContent {
+    @include flex-between;
+    gap: 10px;
+    padding-bottom: 28px;
+}
+
+.teamCardText {
+    border-top: 1px solid #000;
+    padding-top: 28px;
+    max-width: 317px;
+}
+
+.teamBtnContainer {
+    @include flex-row;
+    justify-content: flex-end;
+    padding-top: 40px;
+}
 
