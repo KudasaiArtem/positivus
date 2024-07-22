@@ -62,3 +62,7 @@ figure {
     margin-inline-start: 0;
     margin-inline-end: 0;
 }
+
+button {
+	padding: 0;
+}
