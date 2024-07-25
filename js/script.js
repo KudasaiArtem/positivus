@@ -10,6 +10,7 @@ let slides;
 // slider controls
 const moveLeft = document.querySelector("#moveSlideLeft");
 const moveRight = document.querySelector("#moveSlideRight");
+const sliderMarker = document.querySelectorAll(".sliderMarker");
 
 //
 let currentSlideID = 1;
@@ -19,6 +20,9 @@ const sliderGap = parseInt(sliderGapString.slice(0, -2));
 
 let sliderWidth;
 let slideWidth;
+
+// checkBox
+const checkBoxes = document.querySelectorAll(".checkBox");
 
 
 class UI {
@@ -30,6 +34,7 @@ class UI {
 
 
     static slider() {
+        UI.inactiveArrows();
         // Ensure currentSlideID is within the valid range
         if (currentSlideID <= 1) {
             currentSlideID = 1;
@@ -45,6 +50,8 @@ class UI {
         }
 
         currentSlide = slides[currentSlideID];
+
+        UI.markers(currentSlideID - 1, false);
 
         let offset = -(currentSlideID * (slideWidth + sliderGap) - (sliderWidth / 2) + (slideWidth / 2));
         sliderWrapper.style.left = `${offset}px`;
@@ -75,6 +82,31 @@ class UI {
                 moveRight.style.opacity = "1";
                 break;
         }
+    }
+
+    static markers(id = currentSlideID - 1, isOnMarker = false) {
+        sliderMarker.forEach((marker) => {
+            marker.classList.remove("sliderMarkerActive");
+        });
+    
+        sliderMarker[id].classList.add("sliderMarkerActive");
+    
+        if (isOnMarker) {
+            currentSlideID = id + 1;
+            console.log(currentSlideID);
+            UI.slider();
+        } else {
+            console.log(currentSlideID);
+            return;
+        }
+    }
+    
+    static checkBox(id) {
+        checkBoxes.forEach((checkBox) => {
+            checkBox.firstElementChild.classList.remove("checkBoxActive");
+        })
+
+        checkBoxes[id].firstElementChild.classList.toggle("checkBoxActive");
     }
 }
 
@@ -114,14 +146,28 @@ dropDownBTN.forEach((button) => {
 // slider events
 moveLeft.addEventListener("click", () => {
     currentSlideID -= 1;
-    currentSlide = slides[currentSlideID];
     UI.slider();
 })
 
 moveRight.addEventListener("click", () => {
     currentSlideID += 1;
-    currentSlide = slides[currentSlideID];
     UI.slider();
+})
+
+sliderMarker.forEach((marker) => {
+    marker.addEventListener("click", () => {
+        let id = Array.from(sliderMarker).indexOf(marker);
+        console.log(id);
+        UI.markers(id, true);
+    })
+})
+
+// checkBox event
+checkBoxes.forEach((checkBox) => {
+    checkBox.addEventListener("click", () => {
+        let id = Array.from(checkBoxes).indexOf(checkBox);
+        UI.checkBox(id);
+    })
 })
 
 // on load
@@ -129,4 +175,5 @@ document.addEventListener("DOMContentLoaded", () => {
     SlidesInit.init();
     UI.centerSlide();
     UI.inactiveArrows(false);
+    UI.markers();
 })

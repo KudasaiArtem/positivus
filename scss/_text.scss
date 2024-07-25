@@ -43,3 +43,20 @@ a {
     line-height: 140%;
 }
 
+label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+}
+
+input,
+textarea {
+    font-weight: 400;
+    font-size: map-get($font-d, "p");
+    // color: $light;
+
+    &::placeholder {
+        color: #898989;
+    }
+}
+

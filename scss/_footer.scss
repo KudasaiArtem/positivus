@@ -1,0 +1,31 @@
+footer {
+    border-radius: 45px 45px 0 0;
+    padding: 55px 60px 50px 60px;
+    background: $secondary;
+    
+    a {
+        color: #fff;
+    }
+}
+
+.footerHead {
+    @include flex-between;
+    @include flex-align-center;
+
+    nav {
+        @include flex-between;
+        gap: 40px;
+
+        a {
+            text-decoration: underline
+        }
+    }
+}
+
+.footerSocials {
+    @include flex-align-center;
+    gap: 20px;
+    a {
+        display: contents;
+    }
+}
