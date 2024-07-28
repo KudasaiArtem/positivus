@@ -463,8 +463,8 @@ body {
 #moveSlideLeft,
 #moveSlideRight {
 	background-color: transparent;
-	width: 50;
-	height: 50;
+	width: 50px;
+	height: 50px;
 	border: 0;
 	padding: 12px;
 	transition: 0.3s ease-in-out;
@@ -615,13 +615,19 @@ header nav {
 }
 
 @font-face {
-	font-family: "SpaceGrotesk";
-	src: url("../fonts/SpaceGrotesk.ttf");
+	font-family: "SpaceGrotesk-M";
+	src: url("../fonts/SpaceGrotesk-Medium.ttf");
+	font-weight: 500;
+	color: #000000;
+}
+@font-face {
+	font-family: "SpaceGrotesk-R";
+	src: url("../fonts/SpaceGrotesk-Regular.ttf");
 	font-weight: 500;
 	color: #000000;
 }
 * {
-	font-family: "SpaceGrotesk";
+	font-family: "SpaceGrotesk-M";
 }
 
 h1 {
@@ -648,6 +654,7 @@ p {
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 140%;
+	font-family: "SpaceGrotesk-R";
 }
 
 a {
@@ -656,6 +663,15 @@ a {
 	color: #000000;
 	font-weight: 400;
 	line-height: 140%;
+	font-family: "SpaceGrotesk-R";
+}
+
+button {
+	font-family: "SpaceGrotesk-R";
+}
+
+.learnMore h4 {
+	font-family: "SpaceGrotesk-R";
 }
 
 label {
@@ -679,7 +695,8 @@ footer {
 	padding: 55px 60px 50px 60px;
 	background: #191A23;
 }
-footer a {
+footer a,
+footer p {
 	color: #fff;
 }
 
@@ -705,4 +722,67 @@ footer a {
 }
 .footerSocials a {
 	display: contents;
+}
+
+.privacyPolicy {
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+	padding-top: 50px;
+	border-top: 1px solid #fff;
+}
+.privacyPolicy a {
+	text-decoration: underline;
+	font-size: 20px;
+}
+
+.subscribe {
+	border-radius: 14px;
+	padding: 58px 40px;
+	background: #292a32;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 20px;
+}
+
+.subscribeBtn {
+	background-color: #B9FF66;
+	color: #000;
+	white-space: nowrap;
+}
+
+#subscribeToNews {
+	border: 1px solid #fff;
+	border-radius: 14px;
+	padding: 22px 35px;
+	background: transparent;
+	color: #fff;
+}
+#subscribeToNews::placeholder {
+	color: #fff;
+}
+
+.contactsFooter {
+	display: flex;
+	justify-content: space-between;
+	padding: 66px 0 50px 0;
+}
+
+.contactUsFooter {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.contactUsFooter h4 {
+	background-color: #B9FF66;
+	border-radius: 7px;
+	padding: 0 7px;
+	margin-bottom: 27px;
+}
+
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }/*# sourceMappingURL=style.css.map */

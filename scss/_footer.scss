@@ -3,7 +3,8 @@ footer {
     padding: 55px 60px 50px 60px;
     background: $secondary;
     
-    a {
+    a,
+    p {
         color: #fff;
     }
 }
@@ -29,3 +30,67 @@ footer {
         display: contents;
     }
 }
+
+.privacyPolicy {
+    @include flex-row;
+    gap: 40px;
+    padding-top: 50px;
+    border-top: 1px solid #fff;
+
+    a {
+        text-decoration: underline;
+        font-size: 20px;
+    }
+}
+
+.subscribe {
+    border-radius: 14px;
+    padding: 58px 40px;
+    background: #292a32;
+
+    @include flex-row;
+    align-items: center;
+    gap: 20px;
+}
+
+.subscribeBtn {
+    background-color: $primary;
+    color: #000;
+    white-space: nowrap;
+}
+
+#subscribeToNews {
+    border: 1px solid #fff;
+    border-radius: 14px;
+    padding: 22px 35px;
+    background: transparent;
+    color: #fff;
+
+    &::placeholder {
+        color: #fff;
+    }
+}
+
+.contactsFooter {
+    @include flex-between;
+
+    padding: 66px 0 50px 0;
+}
+
+.contactUsFooter {
+    @include flex-column;
+    align-items: flex-start;
+
+    h4 {
+        background-color: $primary;
+        border-radius: 7px;
+        padding: 0 7px;
+        margin-bottom: 27px;
+    }
+}
+
+.contactInfo {
+    @include flex-column;
+    gap: 20px;
+}
+
