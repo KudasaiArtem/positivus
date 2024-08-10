@@ -61,7 +61,6 @@ function pageWidth() {
     if (width <= 768) {
         touchSlider();
         console.log("touchSlider ON");
-        
     }
 }
 

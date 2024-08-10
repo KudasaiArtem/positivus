@@ -43,10 +43,15 @@ header {
     height: 21px;
     width: 26px;
     cursor: pointer;
+    display: none;
 
     svg {
         pointer-events: none;
         transition: 0.3s ease-in-out;
+    }
+
+    @include large {
+        display: flex;
     }
 }
 

@@ -1148,10 +1148,16 @@ header {
 	height: 21px;
 	width: 26px;
 	cursor: pointer;
+	display: none;
 }
 .burgerBtn svg {
 	pointer-events: none;
 	transition: 0.3s ease-in-out;
+}
+@media (max-width: 1180px) {
+	.burgerBtn {
+		display: flex;
+	}
 }
 
 .burgerBtnClose {
