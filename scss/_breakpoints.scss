@@ -1,0 +1,41 @@
+@mixin e-large {
+    @media (max-width: map-get($breakpoint, "e-large")) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (max-width: map-get($breakpoint, "large")) {
+        @content;
+    }
+}
+
+@mixin e-medium {
+    @media (max-width: map-get($breakpoint, "e-medium")) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (max-width: map-get($breakpoint, "medium")) {
+        @content;
+    }
+}
+
+@mixin mobile-l {
+    @media (max-width: map-get($breakpoint, "mobile-l")) {
+        @content;
+    }
+}
+
+@mixin mobile-m {
+    @media (max-width: map-get($breakpoint, "mobile-m")) {
+        @content;
+    }
+}
+
+@mixin mobile-s {
+    @media (max-width: map-get($breakpoint, "mobile-s")) {
+        @content;
+    }
+}

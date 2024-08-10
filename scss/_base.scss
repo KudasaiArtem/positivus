@@ -8,23 +8,75 @@
 
 body {
     background-color: #FFFFFF;
+    width: 100%;
 }
 
 .container {
-    max-width: 1240px;
+    max-width: 1288px;
     width: 100%;
     margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    //overflow-x: hidden;
+
+    @include medium {
+        padding: 0 20px;
+    }
 }
 
 .mainSection {
-    padding: 70px 0 140px 0;
+    //padding: 70px 0 140px 0;
+    padding-top: 70px;
+    padding-bottom: 140px;
     gap: 104px;
+    overflow-x: hidden;
     
     @include flex-column;
+
+    @include medium {
+        padding-top: 40px;
+    }
 }
 
 .promotion {
     @include flex-between;
+
+    // @include medium {
+    //     @include flex-column;
+    // }
+}
+
+.illustration {
+    object {
+        @include large {
+            width: 100%;
+            margin-left: -24px;
+        }
+    
+        @include medium {
+            display: none;
+        }
+    }
+}
+
+.illustrationHiden {
+    @include medium {
+        width: 100%;
+    }
+
+    object {
+        display: none;
+
+        @include medium {
+            display: block;
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        @include mobile-l {
+            width: 100%;
+        }
+    }
 }
 
 .promotionContent {
@@ -34,10 +86,25 @@ body {
 
     h1 {
         max-width: 530px;
+
+        @include medium {
+            align-self: flex-start;
+            max-width: 100%;
+        }
     }
 
     p {
         max-width: 498px;
+
+        @include medium {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    @include medium {
+        width: 100%;
+        align-items: center;
     }
 }
 
@@ -48,17 +115,55 @@ body {
     border: 0;
     
     @include button;
+
+    @include medium {
+        width: 100%;
+    }
 }
 
 .brandPartners {
     @include flex-between;
     @include flex-align-center;
+    gap: 90px;
+
+    animation: scroll 15s linear infinite;
+
+    svg {
+        flex-shrink: 0;
+    }
 }
 
-// .services {
-//     @include flex-column;
-//     gap: 80px;
-// }
+.brandPartnersRevers {
+    animation: scrollRevers 15s linear infinite;
+}
+
+.brandPartnersLayout {
+    @include flex-column;
+    gap: 20px;
+}
+
+.brandPartnersScroll {
+    display: flex;
+    gap: 90px;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - 90px));
+    }
+}
+
+@keyframes scrollRevers {
+    from {
+        transform: translateX(calc(-100% - 90px));
+    }
+    to {
+        transform: translateX(0);
+    }
+}
 
 .defaultTitle {
     @include flex-align-center;
@@ -69,17 +174,75 @@ body {
         background-color: $primary;
         border-radius: 7px;
         padding: 0 7px;
+
+        @include medium {
+            text-align: center;
+        }
     }
 
     p {
         max-width: 580px;
+
+        @include medium {
+            text-align: center;
+        }
+    }
+
+    @include e-medium {
+        gap: 24px;
+    }
+
+    @include medium {
+        gap: 30px;
+        flex-direction: column;
     }
 }
 
+.defaultTitleFIX {
+    span {
+        display: inline-block;
+    }
+
+    @include medium {
+        h2 {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            @include flex-column;
+            align-items: center;
+    
+            span {
+                background-color: $primary;
+                border-radius: 7px;
+                padding: 0 7px;
+            }
+        }
+    }
+}
+
+.services {
+    padding-bottom: 100px;
+}
+
 .servicesCards {
-    @include flex-between;
-    flex-wrap: wrap;
+    // @include flex-row;
+    // justify-content: center;
+    // flex-wrap: wrap;
+    // gap: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+    justify-content: center;
+
+    @include e-large {
+        gap: 24px;
+    }
+
+    @include medium {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
 }
 
 .cardDefault  {
@@ -87,18 +250,24 @@ body {
     border-radius: 45px;
     padding: 50px;
     max-width: 600px;
-    width: 100%;
+    //width: 100%;
     box-shadow: 0 5px 0 0 $secondary;
 
     @include flex-between;
+    flex-grow: 1;
 
     & > div{
         @include flex-column;
         @include flex-between;
+        width: 100%;
 
         & > div {
             @include flex-column;
             align-items: flex-start;
+        }
+
+        @include e-medium {
+            gap: 27px;
         }
     }
 
@@ -106,6 +275,54 @@ body {
         border-radius: 7px;
         padding: 0px 7px;
         display: inline-block;
+
+        @include large {
+            font-size: 28px;
+        }
+    }
+
+    a {
+        h4 {
+            @include e-medium {
+                display: none;
+            }
+        }
+    }
+
+    .learnMore {
+        @include e-medium {
+            width: 100%;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+    }
+
+    @include medium {
+        width: 100%;
+    }
+}
+
+.learnMoreImg {
+    max-height: 100%;
+    width: auto;
+
+    @include large {
+        max-height: 72.5%;
+        align-self: center;
+    }
+
+    @include e-medium {
+        display: none;
+    }
+}
+
+.learnMoreImgHiden {
+    display: none;
+
+    @include e-medium {
+        display: block;
+        max-height: 129px;
+        align-self: flex-end;
     }
 }
 
@@ -175,7 +392,7 @@ body {
 }
 
 .proposalBannerLayout {
-    padding: 123px 0 163px 0;
+    padding: 23px 0 163px 0;
 }
 
 .proposalBanner {
@@ -190,6 +407,20 @@ body {
     gap: 26px;
     align-items: start;
 
+    @include e-medium {
+        align-items: stretch;
+    }
+
+    @include medium {
+        padding: 50px;
+    }
+
+    h3 {
+        @include e-medium {
+            align-self: center;
+        }
+    }
+
     &::before {
         content: "";
         background-image: url("../img/proposalBanner.svg");
@@ -203,10 +434,24 @@ body {
         z-index: 1;
         background-size: contain;
         pointer-events: none;
+
+        margin-right: 135px;
+
+        @include large {
+            margin-right: 84px;
+        }
+
+        @include e-medium {
+            display: none;
+        }
     }
 
     p {
-        max-width: 500px
+        max-width: 500px;
+
+        @include e-medium {
+            max-width: 100%;
+        }
     }
 }
 
@@ -218,6 +463,12 @@ body {
 
 .casesLayout {
     padding-bottom: 140px;
+
+    .defaultTitle {
+        h2 {
+            white-space: nowrap;
+        }
+    }
 }
 
 .casesBanner {
@@ -225,6 +476,9 @@ body {
     border-radius: 45px;
     padding: 70px 60px;
     width: 100%;
+    position: relative;
+    left: 0;
+    transition: 0.1s ease-out;
 
     @include flex-between;
     
@@ -240,6 +494,42 @@ body {
 
     span {
         border: 1px solid #FFFFFF;
+
+        @include large {
+            display: none;
+        }
+    }
+
+    @include large {
+        padding: 42px 50px;
+        gap: 24px;
+    }
+
+    @include medium {
+        background-color: transparent;
+        padding: 0;
+        // overflow: hidden;
+    }
+}
+
+.casesContainer {
+    @include medium {
+        overflow-x: hidden;
+        padding-right: 0;
+    }
+}
+
+.caseSlide {
+    @include medium {
+        background-color: $secondary;
+        border-radius: 45px;
+        padding: 42px 50px;
+        flex-shrink: 0;
+    }
+
+    @include mobile-l {
+        max-width: calc(100% - 20px);
+        width: 100%;
     }
 }
 
@@ -271,6 +561,10 @@ body {
     background-color: $light;
 
     transition: 0.3s ease-in-out;
+
+    @include medium {
+        padding: 30px;
+    }
 }
 
 .dropDownMenuActive {
@@ -280,6 +574,7 @@ body {
 .dropDownTitle {
     @include flex-align-center;
     @include flex-between;
+    gap: 15px;
 
     div {
         @include flex-align-center;
@@ -288,6 +583,26 @@ body {
         span {
             font-size: map-get($font-d, "h1");
             line-height: 140%;
+
+            @include medium {
+                font-size: 45px;
+            }
+
+            @include mobile-l {
+                font-size: 30px;
+            }
+        }
+
+        h3 {
+            font-family: $font-R;
+
+            @include medium {
+                font-size: 22px;
+            }
+
+            @include mobile-l {
+                font-size: 18px;
+            }
         }
     }
 }
@@ -317,27 +632,49 @@ body {
     position: relative;
     transition: 0.3s ease-in-out;
 
-    svg {
-        pointer-events: none;
-    }
+    height: 58px;
+    width: 58px;
 
     &::before {
         content: "";
-        width: 26px;
+        width: 24.4px;
         height: 6px;
         margin: 10px 0;
         background-color: $secondary;
+
+        @include mobile-l {
+            height: 3px;
+            width: 13px;
+            margin: 5px 0;
+        }
     }
 
     &::after {
         content: "";
-        width: 26px;
+        width: 24.4px;
         height: 6px;
         margin: 10px 0;
         background-color: $secondary;
         transform: rotate(90deg);
         position: absolute;
         transition: 0.3s ease-in-out;
+        box-sizing: content-box;
+
+        @include mobile-l {
+            height: 3px;
+            margin: 5px 0;
+            width: 13px;
+        }
+    }
+
+    @include medium {
+
+    }
+
+    @include mobile-l {
+        width: 30px;
+        height: 30px;
+        padding: 8px;
     }
 }
 
@@ -358,6 +695,15 @@ body {
 
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+
+    @include large {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include medium {
+        gap: 30px;
+        grid-template-columns: 1fr;
+    }
 }
 
 .teamSection {
@@ -384,8 +730,12 @@ body {
 
         img {
             max-width: 102px;
-            height: 100%;
+            max-height: 102px;
         }
+    }
+
+    @include large {
+        max-width: 100%
     }
 }
 
@@ -398,13 +748,23 @@ body {
 .teamCardText {
     border-top: 1px solid #000;
     padding-top: 28px;
-    max-width: 317px;
+    //max-width: 317px;
 }
 
 .teamBtnContainer {
     @include flex-row;
     justify-content: flex-end;
     padding-top: 40px;
+
+    @include medium {
+        justify-content: center;
+    }
+
+    button {
+        @include medium {
+            width: 100%;
+        }
+    }
 }
 
 .testimonialsLayout {
@@ -421,7 +781,11 @@ body {
     border-radius: 45px;
     background-color: $secondary;
     padding: 84px 0 30px 0;
-    overflow: hidden
+    overflow: hidden;
+
+    @include mobile-l {
+        padding: 30px 0 30px 0;
+    }
 }
 
 .sliderWrapper {
@@ -435,6 +799,22 @@ body {
 .slide {
     max-width: 606px;
     flex-shrink: 0;
+
+    @include medium {
+        max-width: 450px;
+    }
+
+    @media (max-width: 620px) {
+        max-width: 340px;
+    }
+
+    @include mobile-l {
+        max-width: 300px;
+    }
+
+    @include mobile-m {
+        max-width: 270px;
+    }
 }
 
 .slideContent {
@@ -443,6 +823,14 @@ body {
     border: 2px solid $primary;
     position: relative;
     margin-bottom: 48px;
+
+    @include medium {
+        padding: 30px 36px;
+    }
+
+    @include mobile-l {
+        padding: 30px 30px;
+    }
 
     p {
         color: #FFFFFF;
@@ -461,6 +849,14 @@ body {
         position: absolute;
         bottom: -29px;
         left: 56px;
+
+        @include medium {
+            left: calc(56px - 10px);
+        }
+
+        @include mobile-l {
+            left: calc(56px - 20px);
+        }
     }
 
     &::after {
@@ -475,29 +871,58 @@ body {
         position: absolute;
         bottom: -26.5px;
         left: 56px;
+
+        @include medium {
+            left: calc(56px - 10px);
+        }
+
+        @include mobile-l {
+            left: calc(56px - 20px);
+        }
     }
 }
 
 .slideUser {
     padding-left: 80px;
     color: #FFFFFF;
+
+    h4 {
+        color: #FFFFFF;
+    }
+
+    p {
+        color: #FFFFFF;
+    }
+
+    @include medium {
+        padding-left: calc(80px - 10px);
+    }
+
+    @include mobile-l {
+        padding-left: calc(80px - 20px);
+    }
 }
 
 .sliderControls {
     @include flex-between;
-    max-width: 564px;
+    max-width: calc(564px - 30px);
     margin: 0 auto;
     align-items: center;
     margin-top: 106px;
+    padding: 0 30px;
+
+    @include mobile-l {
+        margin-top: 60px;
+    }
 }
 
 #moveSlideLeft,
 #moveSlideRight {
     background-color: transparent;
-    width: 50px;
-    height: 50px;
+    //width: 50px;
+    //height: 50px;
     border: 0;
-    padding: 12px;
+    //padding: 12px;
     transition: 0.3s ease-in-out;
 }
 
@@ -531,6 +956,7 @@ body {
     padding: 60px 100px 80px 100px;
     background-color: $light;
     position: relative;
+    width: 100%;
 
     form {
         @include flex-column;
@@ -538,6 +964,11 @@ body {
         align-items: flex-start;
         max-width: 556px;
         width: 100%;
+
+        @include e-medium {
+            align-items: center;
+            margin: 0 auto;
+        }
     }
 
     &::after {
@@ -553,6 +984,23 @@ body {
         z-index: 1;
         // background-size: contain;
         pointer-events: none;
+
+        @include large {
+            background-size: calc(368px - 52px);
+        }
+
+        @include e-medium {
+            background-image: none;
+            display: none;
+        }
+    }
+
+    @include medium {
+        padding: 40px 50px;
+    }
+
+    @include mobile-l {
+        padding: 40px 30px;
     }
 }
 
@@ -622,5 +1070,31 @@ body {
 
 #userMessage {
     min-height: 190px;
+}
+
+//
+section,
+.mainSection,
+.services,
+.proposalBannerLayout,
+.casesLayout,
+.workingProcess,
+.teamSection,
+.testimonialsLayout,
+.contactUs {
+    @include large {
+        //padding-top: 45px;
+        padding-bottom: 70px;
+    }
+
+    @include medium {
+        //padding-top: 45px;
+        padding-bottom: 70px;
+    }
+
+    @include mobile-l {
+        //padding-top: 45px;
+        padding-bottom: 60px;
+    }
 }
 

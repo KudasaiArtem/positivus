@@ -18,12 +18,23 @@ $font-d: (
 );
 
 // font size mobile
-$font-m: (
+$font-mobile: (
     "h1": 43px,
     "h2": 36px,
     "h3": 26px,
     "h4": 18px,
     "p": 16px,
+);
+
+// breakpoints
+$breakpoint: (
+    "e-large": 1440px,
+    "large": 1180px,
+    "e-medium": 1024px,
+    "medium": 768px,
+    "mobile-l": 432px,
+    "mobile-m": 375px,
+    "mobile-s": 320px, 
 );
 
 // flex

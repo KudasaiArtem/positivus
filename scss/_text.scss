@@ -2,38 +2,53 @@
     font-family: $font-M;
     src: url("../fonts/SpaceGrotesk-Medium.ttf");
     font-weight: 500;
-    color: $text-color;
 }
 
 @font-face {
     font-family: $font-R;
     src: url("../fonts/SpaceGrotesk-Regular.ttf");
     font-weight: 500;
-    color: $text-color;
 }
 
 * {
     font-family: $font-M;
+    color: $text-color;
 }
 
 h1 {
     font-size: map-get($font-d, "h1");
     line-height: 140%;
+
+    @include medium {
+        font-size: map-get($font-mobile, "h1");
+    }
 }
 
 h2 {
     font-size: map-get($font-d, "h2");
     line-height: 140%;
+
+    @include medium {
+        font-size: map-get($font-mobile, "h2");
+    }
 }
 
 h3 {
     font-size: map-get($font-d, "h3");
     line-height: 140%;
+
+    @include medium {
+        font-size: map-get($font-mobile, "h3");
+    }
 }
 
 h4 {
     font-size: map-get($font-d, "h4");
     line-height: 140%;
+
+    @include medium {
+        font-size: map-get($font-mobile, "h4");
+    }
 }
 
 p {
@@ -41,6 +56,10 @@ p {
     font-weight: 400;
     line-height: 140%;
     font-family: $font-R;
+
+    @include medium {
+        font-size: map-get($font-mobile, "p");
+    }
 }
 
 a {

@@ -24,6 +24,47 @@ let slideWidth;
 // checkBox
 const checkBoxes = document.querySelectorAll(".checkBox");
 
+// team cards
+const teamCards = document.querySelectorAll(".teamCard");
+
+// burger menu
+const navBar = document.querySelector(".navBar");
+const burgerBtn = document.querySelector(".burgerBtn");
+const body = document.querySelector("body");
+let burgerActive = false;
+
+// touch slider
+const touchZone = document.querySelector(".touchZone");
+const casesBanner = document.querySelector(".casesBanner");
+const caseSlide = document.querySelectorAll(".caseSlide");
+let touchSlideId = 0;
+let slideTouchWidth = caseSlide[0].getBoundingClientRect().width;
+
+let startCord = 0;
+let currentOffset = 0;
+
+let touchSlidesQuantity = caseSlide.length - 1;
+
+let endOffsetBorder = -(slideTouchWidth + 24) * touchSlidesQuantity;
+console.log(endOffsetBorder);
+
+
+
+function pageWidth() {
+    let width = window.innerWidth;
+
+    if (width < 427) {
+        UI.teamCardsRemove();
+        UI.scroller();
+    }
+
+    if (width <= 768) {
+        touchSlider();
+        console.log("touchSlider ON");
+        
+    }
+}
+
 
 class UI {
     static dropDownMenu(id) {
@@ -31,7 +72,6 @@ class UI {
         dropDownMenu[id].classList.toggle("dropDownMenuActive");
         dropDownBTN[id].classList.toggle("dropDownBTNActive");
     }
-
 
     static slider() {
         UI.inactiveArrows();
@@ -108,6 +148,69 @@ class UI {
 
         checkBoxes[id].firstElementChild.classList.toggle("checkBoxActive");
     }
+
+    static teamCardsRemove() {
+        const length = teamCards.length;
+
+        for (let i = 0; i < 2; i++) {
+            teamCards[length - 1 - i].remove();
+        }
+    }
+
+    static scroller() {
+        const scroller = document.querySelector(".brandPartnersScroll").cloneNode(true);
+        const brandPartnersLayout = document.querySelector(".brandPartnersLayout");
+
+        Array.from(scroller.children).forEach(child => {
+            child.classList.add("brandPartnersRevers");
+        });
+
+        brandPartnersLayout.append(scroller);
+    }
+
+    static burgerMenu() {
+        navBar.classList.toggle("navBarActive");
+        burgerBtn.classList.toggle("burgerBtnClose");
+
+        // фікс для iPhone
+        if (burgerActive === false) {
+            // window.scrollTo({
+            //     top: 0,
+            //     behavior: 'smooth'
+            // });
+
+            // window.addEventListener("scroll", event => {
+            //     event.preventDefault();
+            //     window.scrollTo({
+            //         top: 0,
+            //         behavior: 'smooth'
+            //     });
+            // });
+
+            body.style.setProperty("overflow-y", "scroll");
+            body.style.setProperty("touch-action", "none");
+            body.style.setProperty("- ms - touch - action", "none");
+            body.style.setProperty("position", "fixed");
+            
+
+            burgerActive = true;
+
+        } else {
+            body.style.setProperty("overflow-y", "scroll");
+            body.style.setProperty("touch-action", "auto");
+            body.style.setProperty("- ms - touch - action", "auto");
+            body.style.setProperty("position", "static");
+
+            burgerActive = false;
+        }
+    }
+
+    static touchSlider(id) {
+        let offset = -(slideTouchWidth + 24) * id;
+        currentOffset = offset;
+        
+        casesBanner.style.setProperty("left", `${offset}px`);
+    }
 }
 
 class SlidesInit {
@@ -132,6 +235,63 @@ class SlidesInit {
         slides = document.querySelectorAll(".slide");
         currentSlide = slides[currentSlideID]
         console.log(slides);
+    }
+}
+
+class TouchLogic {
+    static start(x) {
+        startCord = x;
+    }
+
+    static end(x) {
+        let deltaX = x - startCord;
+        currentOffset += deltaX;
+
+        if (currentOffset > 0) {
+            currentOffset = 0;
+            touchSlideId = 0;
+            return;
+
+        } else if (currentOffset < endOffsetBorder) {
+            touchSlideId = touchSlidesQuantity;
+            currentOffset = endOffsetBorder;
+            return;
+        }
+
+        TouchLogic.deathZone(deltaX);
+
+        //casesBanner.style.setProperty("left", `${currentOffset}px`);
+    }
+
+    static move(cordX) {
+        let deltaX = cordX - startCord;
+        let newCordX = currentOffset + deltaX;
+
+        if (newCordX > 0) {
+            return;
+        } else if (newCordX < endOffsetBorder) {
+            //currentOffset = endOffsetBorder;
+            return;
+        }
+
+        casesBanner.style.setProperty("left", `${newCordX}px`);
+    }
+
+    static deathZone(prop) {
+        let deathZone = 50;
+
+        if (prop > deathZone) {
+            touchSlideId--
+
+            UI.touchSlider(touchSlideId);
+            
+        } else if (prop < -deathZone) {
+            touchSlideId++
+
+            UI.touchSlider(touchSlideId);
+        } else {
+            UI.touchSlider(touchSlideId);
+        }
     }
 }
 
@@ -170,10 +330,33 @@ checkBoxes.forEach((checkBox) => {
     })
 })
 
+// burger menu event
+burgerBtn.addEventListener("click", () => {
+    UI.burgerMenu();
+})
+
+// touch
+function touchSlider() {
+    touchZone.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        TouchLogic.move(e.touches[0].clientX);
+    })
+    
+    touchZone.addEventListener("touchstart", (e) => {
+        TouchLogic.start(e.touches[0].clientX);
+    })
+    
+    touchZone.addEventListener("touchend", (e) => {
+        TouchLogic.end(e.changedTouches[0].clientX);
+        console.log(e);
+    });
+}
+
 // on load
 document.addEventListener("DOMContentLoaded", () => {
     SlidesInit.init();
     UI.centerSlide();
     UI.inactiveArrows(false);
     UI.markers();
+    pageWidth();
 })
