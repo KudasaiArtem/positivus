@@ -1218,7 +1218,7 @@ header a:hover {
 		background-color: #191A23;
 	}
 	header a:active {
-		background-color: #4d4d4d;
+		text-decoration: underline;
 	}
 }
 
