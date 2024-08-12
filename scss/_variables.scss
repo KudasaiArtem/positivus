@@ -67,3 +67,25 @@ $breakpoint: (
     line-height: 140%;
     border: 0;
 }
+
+@mixin secondaryBtnResponse {
+    transition: 0.15s ease-in-out;
+
+    &:hover {
+        background-color: #4d4d4d;
+    }
+
+    &:active {
+        background-color: #727272;
+    }
+
+    @include medium {
+        &:hover {
+            background-color: $secondary;
+        }
+
+        &:active {
+            background-color: #4d4d4d;
+        }
+    }
+}

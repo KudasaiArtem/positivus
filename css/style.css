@@ -119,10 +119,25 @@ body {
 	cursor: pointer;
 	line-height: 140%;
 	border: 0;
+	transition: 0.15s ease-in-out;
 }
 @media (max-width: 768px) {
 	#booking {
 		width: 100%;
+	}
+}
+#booking:hover {
+	background-color: #4d4d4d;
+}
+#booking:active {
+	background-color: #727272;
+}
+@media (max-width: 768px) {
+	#booking:hover {
+		background-color: #191A23;
+	}
+	#booking:active {
+		background-color: #4d4d4d;
 	}
 }
 
@@ -146,11 +161,38 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1288px;
+	overflow-x: hidden;
+	width: 100%;
+	position: relative;
+}
+.brandPartnersLayout::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	left: 0;
+	z-index: 2;
+	background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+}
+.brandPartnersLayout::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	right: 0;
+	z-index: 2;
+	background: linear-gradient(to left, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 }
 
 .brandPartnersScroll {
 	display: flex;
 	gap: 90px;
+	width: 100%;
 }
 
 @keyframes scroll {
@@ -335,6 +377,13 @@ body {
 }
 .learnMore h4 {
 	font-weight: 400;
+	transition: 0.15s ease-in-out;
+}
+.learnMore svg path {
+	transition: 0.15s ease-in-out;
+}
+.learnMore:hover h4 {
+	text-decoration: underline;
 }
 
 .card1 {
@@ -343,12 +392,18 @@ body {
 .card1 h3 {
 	background-color: #B9FF66;
 }
+.card1 .learnMore:hover svg path {
+	fill: #ffffff;
+}
 
 .card2 {
 	background-color: #B9FF66;
 }
 .card2 h3 {
 	background-color: #FFFFFF;
+}
+.card2 .learnMore:hover svg path {
+	fill: #ffffff;
 }
 
 .card3 {
@@ -360,6 +415,9 @@ body {
 .card3 h4 {
 	color: #FFFFFF;
 }
+.card3 .learnMore:hover svg path {
+	fill: #B9FF66;
+}
 
 .card4 {
 	background-color: #F3F3F3;
@@ -367,12 +425,18 @@ body {
 .card4 h3 {
 	background-color: #B9FF66;
 }
+.card4 .learnMore:hover svg path {
+	fill: #ffffff;
+}
 
 .card5 {
 	background-color: #B9FF66;
 }
 .card5 h3 {
 	background-color: #FFFFFF;
+}
+.card5 .learnMore:hover svg path {
+	fill: #ffffff;
 }
 
 .card6 {
@@ -383,6 +447,9 @@ body {
 }
 .card6 h4 {
 	color: #FFFFFF;
+}
+.card6 .learnMore:hover svg path {
+	fill: #B9FF66;
 }
 
 .proposalBannerLayout {
@@ -460,6 +527,21 @@ body {
 	border: 0;
 	background-color: #191A23;
 	color: #FFFFFF;
+	transition: 0.15s ease-in-out;
+}
+.secondaryBtn:hover {
+	background-color: #4d4d4d;
+}
+.secondaryBtn:active {
+	background-color: #727272;
+}
+@media (max-width: 768px) {
+	.secondaryBtn:hover {
+		background-color: #191A23;
+	}
+	.secondaryBtn:active {
+		background-color: #4d4d4d;
+	}
 }
 
 .casesLayout {
@@ -626,9 +708,18 @@ body {
 	background-color: #F3F3F3;
 	display: inherit;
 	position: relative;
-	transition: 0.3s ease-in-out;
+	transition: 0.15s ease-in-out;
+	cursor: pointer;
 	height: 58px;
 	width: 58px;
+}
+.dropDownBTN:hover {
+	background-color: #fff;
+}
+@media (max-width: 768px) {
+	.dropDownBTN:hover {
+		background-color: #F3F3F3;
+	}
 }
 .dropDownBTN::before {
 	content: "";
@@ -636,6 +727,7 @@ body {
 	height: 6px;
 	margin: 10px 0;
 	background-color: #191A23;
+	transition: 0.15s ease-in-out;
 }
 @media (max-width: 432px) {
 	.dropDownBTN::before {
@@ -910,6 +1002,7 @@ body {
 	background-color: transparent;
 	border: 0;
 	transition: 0.3s ease-in-out;
+	cursor: pointer;
 }
 
 .sliderMarkers {
@@ -923,6 +1016,7 @@ body {
 	padding: 2px;
 	height: 18px;
 	width: 18px;
+	cursor: pointer;
 }
 .sliderMarkers button svg {
 	transition: 0.3s ease-in-out;
@@ -1116,6 +1210,17 @@ header {
 		padding-top: 30px;
 	}
 }
+header a:hover {
+	text-decoration: underline;
+}
+@media (max-width: 768px) {
+	header a:hover {
+		background-color: #191A23;
+	}
+	header a:active {
+		background-color: #4d4d4d;
+	}
+}
 
 @media (max-width: 432px) {
 	.headerLogo {
@@ -1134,7 +1239,27 @@ header {
 	color: #000000;
 	background: transparent;
 	border: 1px solid #191A23;
+	transition: 0.15s ease-in-out;
 	cursor: pointer;
+}
+#requestBtn:hover {
+	background-color: #191A23;
+	color: #fff;
+}
+#requestBtn:active {
+	background-color: #727272;
+	border: 1px solid #727272;
+}
+@media (max-width: 768px) {
+	#requestBtn:hover {
+		background-color: transparent;
+		color: #000;
+	}
+	#requestBtn:active {
+		background-color: #191A23;
+		color: #fff;
+		border: 1px solid #191A23;
+	}
 }
 
 .burgerBtn {
@@ -1364,10 +1489,19 @@ footer p {
 .footerHead nav a {
 	text-decoration: underline;
 	font-size: 18px;
+	transition: 0.15s ease-in-out;
 }
 @media (max-width: 825px) {
 	.footerHead nav a {
 		text-decoration: none;
+	}
+}
+.footerHead nav a:hover {
+	text-decoration: none;
+}
+@media (max-width: 768px) {
+	.footerHead nav a:hover {
+		background-color: #F3F3F3;
 	}
 }
 @media (max-width: 1024px) {
@@ -1437,6 +1571,21 @@ footer p {
 @media (max-width: 1024px) {
 	.subscribeBtn {
 		padding: 20px 26px;
+	}
+}
+.subscribeBtn:hover {
+	background-color: #fff;
+}
+.subscribeBtn:active {
+	background-color: #4d4d4d;
+	color: #fff;
+}
+@media (max-width: 768px) {
+	.subscribeBtn:hover {
+		background-color: #B9FF66;
+	}
+	.subscribeBtn:active {
+		background-color: #fff;
 	}
 }
 

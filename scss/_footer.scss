@@ -44,9 +44,20 @@ footer {
         a {
             text-decoration: underline;
             font-size: 18px;
+            transition: 0.15s ease-in-out;
 
             @media (max-width: 825px) {
                 text-decoration: none;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        
+            @include medium {
+                &:hover {
+                    background-color: $light;
+                }
             }
         }
     }
@@ -115,6 +126,25 @@ footer {
 
     @include e-medium {
         padding: 20px 26px;
+    }
+
+    &:hover {
+        background-color: #fff;
+    }
+
+    &:active {
+        background-color: #4d4d4d;
+        color: #fff;
+    }
+
+    @include medium {
+        &:hover {
+            background-color: $primary;
+        }
+
+        &:active {
+            background-color: #fff;
+        }
     }
 }
 
