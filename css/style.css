@@ -1484,6 +1484,7 @@ footer p {
 	.footerHead nav {
 		flex-direction: column;
 		gap: 15px;
+		align-items: center;
 	}
 }
 .footerHead nav a {
